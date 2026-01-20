@@ -53,6 +53,7 @@ public class Player : MonoBehaviour
 
     public void Shoot()
     {
+        ScreenShake.Shake(0.1f, 1);
         GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
         SpriteRenderer bulletSr = bullet.GetComponent<SpriteRenderer>();
