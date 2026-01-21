@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Color thirdColor;
@@ -15,6 +16,10 @@ public class Player : MonoBehaviour
 
     public UnityEvent ShootEvent;
 
+    private void Start()
+    {
+        Instance = this;
+    }
     private void Update()
     {
         CheckShoot();
