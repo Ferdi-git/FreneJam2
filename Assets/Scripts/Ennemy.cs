@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.GraphicsBuffer;
@@ -7,10 +8,10 @@ public class Ennemy : MonoBehaviour
 
     public SpriteRenderer spriteRenderer;
     public Rigidbody2D rb;
-    public float alphaSpeed = 0.5f;
+    public float fullBrightnessCloseness = 40f;
     public GameObject player;
     public float speed;
-
+    public Vector2 dirTowardPlayer;
 
     private void Start()
     {
@@ -20,18 +21,20 @@ public class Ennemy : MonoBehaviour
 
     private void Update()
     {
+        dirTowardPlayer = (player.transform.position - transform.position ).normalized;
 
-        transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), player.transform.position, speed * Time.deltaTime);        
+        rb.linearVelocity += dirTowardPlayer * speed * Time.deltaTime;
 
-        //spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a + alphaSpeed * Time.deltaTime);
+        float distFromPlayer = Vector2.Distance(player.transform.position, transform.position);
+
+        spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, fullBrightnessCloseness/distFromPlayer);
     }
 
 
     public void Hit()
     {
-        //transform.position = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), player.transform.position, -speed);
 
-        rb.AddForce( -transform.forward * speed*5 , ForceMode2D.Impulse);
+        rb.AddForce( -dirTowardPlayer * speed*5 , ForceMode2D.Impulse);
         //Destroy(gameObject);
     }
 }

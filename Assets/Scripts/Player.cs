@@ -64,7 +64,7 @@ public class Player : MonoBehaviour
         SpriteRenderer bulletSr = bullet.GetComponent<SpriteRenderer>();
 
 
-        Color color = new Color(Random.Range(0.5f,1), thirdColor.g, thirdColor.b);
+        Color color = new Color(Random.Range(0.8f,1), thirdColor.g, thirdColor.b);
 
         bulletSr.color = color;
 
