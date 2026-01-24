@@ -5,7 +5,7 @@ public class Player : MonoBehaviour
     public static Player Instance;
     [SerializeField] private Transform firePoint;
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Color thirdColor;
+    public Color thirdColor;
     [SerializeField] private float shootCooldown;
     [SerializeField] private float bulletSpeed;
     [SerializeField] private float bulletSpread;
