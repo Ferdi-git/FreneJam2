@@ -6,5 +6,6 @@ public class Vague
 {
     public SOEnemy[] enemies;
     public float spawnInterval;
+    public float waveLength;
 
 }

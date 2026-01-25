@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9a467588c605d34ab7585b26ab75fef, type: 3}
-  m_Name: EnemyTest
+  m_Name: SimpleEnemy
   m_EditorClassIdentifier: 
-  life: 500
+  life: 50
   speed: 1
-  scale: 1
+  scale: 3
+  brightnessCloseness: 6
+  points: 10
   sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

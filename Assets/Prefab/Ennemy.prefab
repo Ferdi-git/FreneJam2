@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7623523899339076747}
   - component: {fileID: 3518317056843168043}
   - component: {fileID: 7243211842682111228}
+  - component: {fileID: -1541739526472765545}
   m_Layer: 0
   m_Name: Ennemy
   m_TagString: Enemmy
@@ -48,8 +49,8 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
+  m_Mass: 3
+  m_LinearDamping: 0.2
   m_AngularDamping: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -174,6 +175,7 @@ MonoBehaviour:
   health: 100
   dirTowardPlayer: {x: 0, y: 0}
   isBlinking: 0
+  isDead: 0
   lineRenderer: {fileID: 7243211842682111228}
   deathParticule: {fileID: 5940404062290636563, guid: 7c595303864cb6d4daa0997ea6ec69b7, type: 3}
 --- !u!96 &7243211842682111228
@@ -221,7 +223,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Time: 1.5
+  m_Time: 0.5
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3
@@ -292,3 +294,16 @@ TrailRenderer:
   m_Autodestruct: 0
   m_Emitting: 1
   m_ApplyActiveColorSpace: 1
+--- !u!114 &-1541739526472765545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893566377118813599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b289fd134d8e6bc4f82acccaeff30e20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAnEnemy: 1

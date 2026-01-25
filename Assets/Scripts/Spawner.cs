@@ -12,6 +12,11 @@ public class Spawner : MonoBehaviour
 
     public Transform[] spawnPos;
 
+    private void Start()
+    {
+        curentWave = 0;
+        StartCoroutine(WaveDuration());
+    }
 
     void FixedUpdate()
     {
@@ -25,11 +30,21 @@ public class Spawner : MonoBehaviour
         Vector2 pos = spawnPos[randint].position ;
         randint = Random.Range(0, difVagues[curentWave].enemies.Length);
         var newEnemy = Instantiate(mobPrefab, pos, Quaternion.identity);
-        //newEnemy.GetComponent<Enemy>().Initialise(difVagues[curentWave].enemies[randint]);
+        newEnemy.GetComponent<Ennemy>().Initialise(difVagues[curentWave].enemies[randint]);
         yield return new WaitForSeconds(difVagues[curentWave].spawnInterval);
         canSpawn = true;
 
 
+    }
+
+    private IEnumerator WaveDuration()
+    {
+        while (curentWave < difVagues.Length - 1)
+        {
+            yield return new WaitForSeconds(difVagues[curentWave].waveLength);
+            curentWave++;
+
+        }
     }
 
 }
